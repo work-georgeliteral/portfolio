@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #121212;
+  font-family: sans-serif;
+  color: white;
+}
+
+/* LOADING ANIMATION */
+html {
+            scroll-behavior: smooth;
+        }
+  .fade-out {
+      animation: fadeOut 1s ease-out forwards;
+    }
+    @keyframes fadeOut {
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    .spin {
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* SLIDE IN ANIMATION */
+    .slide-in {
+      opacity: 0;
+      transform: translateX(-100px);
+      transition: all 0.8s ease-out;
+    }
+    .slide-in-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
