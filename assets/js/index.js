@@ -23,48 +23,46 @@ window.addEventListener('load', () => {
 });
 
 
-// CAROUSEL
 document.addEventListener('DOMContentLoaded', () => {
-  const carousel = document.getElementById('carousel');
-  const card = carousel.querySelector('div'); // First card
-  const cardWidth = card.offsetWidth;
-  let scrollPosition = 0;
+  // Tools Carousel
+  const carouselTools = document.getElementById('carousel');
+  const cardTools = carouselTools.querySelector('div'); // First card
+  const cardWidthTools = cardTools.offsetWidth;
+  let scrollPositionTools = 0;
 
   document.getElementById('scrollRight').addEventListener('click', () => {
-    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-    if (scrollPosition + cardWidth <= maxScroll) {
-      scrollPosition += cardWidth;
-      carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+    const maxScroll = carouselTools.scrollWidth - carouselTools.clientWidth;
+    if (scrollPositionTools + cardWidthTools <= maxScroll) {
+      scrollPositionTools += cardWidthTools;
+      carouselTools.scrollTo({ left: scrollPositionTools, behavior: 'smooth' });
     }
   });
 
   document.getElementById('scrollLeft').addEventListener('click', () => {
-    if (scrollPosition - cardWidth >= 0) {
-      scrollPosition -= cardWidth;
-      carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+    if (scrollPositionTools - cardWidthTools >= 0) {
+      scrollPositionTools -= cardWidthTools;
+      carouselTools.scrollTo({ left: scrollPositionTools, behavior: 'smooth' });
     }
   });
-});
 
-// CAROUSEL FOR LANGUAGES
-document.addEventListener('DOMContentLoaded', () => {
-  const carousel = document.getElementById('carousel-language');
-  const card = carousel.querySelector('div'); // First card
-  const cardWidth = card.offsetWidth;
-  let scrollPosition = 0;
+  // Languages Carousel
+  const carouselLang = document.getElementById('carousel-language');
+  const cardLang = carouselLang.querySelector('div'); // First card
+  const cardWidthLang = cardLang.offsetWidth;
+  let scrollPositionLang = 0;
 
-  document.getElementById('scrollRightR').addEventListener('click', () => {
-    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-    if (scrollPosition + cardWidth <= maxScroll) {
-      scrollPosition += cardWidth;
-      carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+  document.getElementById('scrollRightL').addEventListener('click', () => {
+    const maxScroll = carouselLang.scrollWidth - carouselLang.clientWidth;
+    if (scrollPositionLang + cardWidthLang <= maxScroll) {
+      scrollPositionLang += cardWidthLang;
+      carouselLang.scrollTo({ left: scrollPositionLang, behavior: 'smooth' });
     }
   });
 
   document.getElementById('scrollLeftL').addEventListener('click', () => {
-    if (scrollPosition - cardWidth >= 0) {
-      scrollPosition -= cardWidth;
-      carousel.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+    if (scrollPositionLang - cardWidthLang >= 0) {
+      scrollPositionLang -= cardWidthLang;
+      carouselLang.scrollTo({ left: scrollPositionLang, behavior: 'smooth' });
     }
   });
 });
