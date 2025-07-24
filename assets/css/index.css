@@ -9,27 +9,9 @@ body{
   color: white;
 }
 
-/* LOADING ANIMATION */
-html {
-            scroll-behavior: smooth;
-        }
-  .fade-out {
-      animation: fadeOut 1s ease-out forwards;
-    }
-    @keyframes fadeOut {
-      100% {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-    .spin {
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      100% {
-        transform: rotate(360deg);
-      }
-    }
+html{
+  scroll-behavior: smooth;
+}
 
     /* SLIDE IN ANIMATION */
     .slide-in {

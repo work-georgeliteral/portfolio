@@ -13,53 +13,64 @@
   </head>
   <body>
     
-    <!-- Loading Screen -->
-    <section>
-      <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-[#121212] text-white text-3xl font-bold">
-    <div class="flex flex-col items-center gap-4">
-      <div class="w-12 h-12 border-4 border-[#3b3f5c] border-t-transparent rounded-full spin"></div>
-      <span>Loading...</span>
-    </div>
-  </div>
-    </section>
-
      <!-- Navbar -->
-  <section>
+<section>
   <header class="fixed top-0 w-full bg-[#121212] border-b border-[#3b3f5c] z-40">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-      <h1 class="text-2xl font-bold text-white">George</h1>
-      <nav class="space-x-6">
-        <a href="#about" class="hover:text-[#3b3f5c] transition">About</a>
-        <a href="#projects" class="hover:text-[#3b3f5c] transition">Projects</a>
-        <a href="#contact" class="hover:text-[#3b3f5c] transition">Contact</a>
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <!-- Logo -->
+      <h1 class="text-2xl font-bold text-white"><a href="#">George's Portfolio</a></h1>
+
+      <!-- Hamburger Button (mobile only) -->
+      <button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none">
+        ☰
+      </button>
+
+      <!-- Navigation -->
+      <nav id="navbar" class="hidden md:flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-6 absolute md:static top-full left-0 w-full md:w-auto bg-[#121212] md:bg-transparent px-6 md:px-0 py-4 md:py-0 z-30 text-white">
+        <a href="#about" class="hover:text-[#3b3f5c] transition block">About</a>
+        <a href="#projects" class="hover:text-[#3b3f5c] transition block">Projects</a>
+        <a href="#contact" class="hover:text-[#3b3f5c] transition block">Contact</a>
       </nav>
     </div>
   </header>
-  </section>
+</section>
+
+<script>
+  // Toggle menu visibility on mobile
+  const toggleBtn = document.getElementById('menu-toggle');
+  const navbar = document.getElementById('navbar');
+
+  toggleBtn.addEventListener('click', () => {
+    navbar.classList.toggle('hidden');
+  });
+</script>
+
 
    <!-- Hero + Profile Section -->
-<section class="min-h-screen flex flex-col md:flex-row items-center justify-center text-left px-6 pt-32 bg-[#121212]">
+<section class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 pt-32 pb-16 bg-[#121212]">
   <!-- Profile Image -->
-  <div class="slide-in mb-10 md:mb-0 md:mr-10">
+  <div class="slide-in mb-10 md:mb-0 md:mr-10 flex-shrink-0">
     <img src="assets/images/gradpic-toga.jpg" alt="Profile"
-      class="w-96 h-96 rounded-full border-4 border-[#3b3f5c] shadow object-cover"
+      class="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-[#3b3f5c] shadow object-cover"
       style="object-position: center 30%;" />
   </div>
 
   <!-- Text Content -->
-  <div class="slide-in text-white max-w-2xl">
-    <h2 class="text-4xl md:text-5xl font-bold mb-2">
+  <div class="slide-in text-white text-center md:text-left max-w-2xl">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
       Hi, I’m <span class="text-[#3b3f5c]">George</span>
     </h2>
-    <p class="text-[#3b3f5c] text-lg mb-4">Web Developer</p>
-    <p class="text-lg leading-relaxed mb-6">
-    IT graduate with a passion for coding and a drive for self-learning, always eager to grow and build innovative solutions.</p>
+    <p class="text-[#3b3f5c] text-base sm:text-lg mb-4">Web Developer</p>
+    <p class="text-base sm:text-lg leading-relaxed mb-6">
+      IT graduate with a passion for coding and a drive for self-learning, always eager to grow and build innovative solutions.
+    </p>
     <a href="#projects"
       class="inline-block px-6 py-3 bg-[#3b3f5c] text-white rounded-full hover:bg-[#1e1e1e] transition font-medium">
       Explore My Work
     </a>
   </div>
 </section>
+
 
   <!-- About Section -->
   <section id="about" class="py-20 px-6 bg-[#1e1e1e] text-center">
@@ -117,98 +128,125 @@
         </h4>
         <div class="loader mx-auto mt-4"></div>
       </div>
-
-        
       </div>
     </div>
   </section>
 
     <section class="Tools bg-[#1e1e1e] py-5 px-6">
-    <div class="w-full max-w-4xl px-4 mx-auto slide-in">
-  <div class="relative overflow-hidden">
-    <!-- Left Arrow -->
-    <button id="scrollLeft" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800 p-2 rounded-full hover:bg-gray-700">
-      &#8592;
-    </button>
+  <div class="w-full max-w-4xl px-4 mx-auto slide-in">
+    <div class="relative overflow-hidden">
+      <!-- Left Arrow -->
+      <button id="scrollLeft" type="button" class="absolute left-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70">
+          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+          </svg>
+          <span class="sr-only">Previous</span>
+        </span>
+      </button>
 
-    <!-- Right Arrow -->
-    <button id="scrollRight" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800 p-2 rounded-full hover:bg-gray-700">
-      &#8594;
-    </button>
+      <!-- Right Arrow -->
+      <button id="scrollRight" type="button" class="absolute right-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70">
+          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+          </svg>
+          <span class="sr-only">Next</span>
+        </span>
+      </button>
 
-    <!-- Carousel Viewport -->
-    <h4 class="text-xl font-semibold text-white">Tools</h4>
-    <div id="carousel" class="flex transition-all duration-300 ease-in-out" style="scroll-behavior: smooth; overflow-x: hidden;">
-      <!-- Cards (fixed width = 1/3 of container) -->
-      <div class="w-1/4 flex-shrink-0 p-2 block text-center">
-        <div class="bg-indigo-600 w-full h-48 flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
-          <img src="./assets/images/Adobe_Photoshop.png"></div>
-        <p>Adobe Photoshop</p>
-      </div>
-      <div class="w-1/4 flex-shrink-0 p-2 block text-center">
-        <div class="bg-blue-300 w-full h-48 flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white"><img src="./assets/images/canva-logo.jpg"></div>
-        <p>canva</p>
-      </div>
-        <div class="w-1/4 flex-shrink-0 p-2 block text-center">
-        <div class="bg-yellow-600  w-full h-48 flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white"><img src="./assets/images/figma.png"></div>
-        <p>Figma</p>
-      </div>
-      <div class="w-1/4 flex-shrink-0 p-2 block text-center">
-        <div class="bg-green-600 w-full h-48 flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white"><img src="./assets/images/Visual_Studio_Code.png"></div>
-        <p>Vscode</p>
+      <!-- Carousel Viewport -->
+      <h4 class="text-xl font-semibold text-white mb-4">Tools</h4>
+      <div id="carousel" class="flex transition-all duration-300 ease-in-out" style="scroll-behavior: smooth; overflow-x: hidden;">
+        <!-- Cards -->
+        <div class="w-1/2 sm:w-1/4 flex-shrink-0 p-2 block text-center">
+          <div class="bg-indigo-600 w-full aspect-square flex items-center justify-center p-2 rounded-xl shadow-lg text-white">
+            <img src="./assets/images/Adobe_Photoshop.png" alt="Adobe Photoshop">
+          </div>
+          <p class="text-white">Adobe Photoshop</p>
+        </div>
+        <div class="w-1/2 sm:w-1/4 flex-shrink-0 p-2 block text-center">
+          <div class="bg-blue-300 w-full aspect-square flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
+            <img src="./assets/images/canva-logo.jpg" alt="Canva">
+          </div>
+          <p class="text-white">Canva</p>
+        </div>
+        <div class="w-1/2 sm:w-1/4 flex-shrink-0 p-2 block text-center">
+          <div class="bg-yellow-600 w-full aspect-square flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
+            <img src="./assets/images/figma.png" alt="Figma">
+          </div>
+          <p class="text-white">Figma</p>
+        </div>
+        <div class="w-1/2 sm:w-1/4 flex-shrink-0 p-2 block text-center">
+          <div class="bg-green-600 w-full aspect-square flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
+            <img src="./assets/images/Visual_Studio_Code.png" alt="VS Code">
+          </div>
+          <p class="text-white">VSCode</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </section>
+
 
 <section class=" languages bg-[#1e1e1e] py-5 px-6">
     <div class="w-full max-w-4xl px-4 mx-auto slide-in">
   <div class="relative overflow-hidden">
-    <!-- Left Arrow -->
-    <button id="scrollLeftL" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800 p-2 rounded-full hover:bg-gray-700">
-      &#8592;
-    </button>
+   <!-- Left Arrow -->
+<button id="scrollLeftL" type="button" class="absolute left-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+  <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70">
+    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" fill="none" viewBox="0 0 6 10">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+    </svg>
+    <span class="sr-only">Previous</span>
+  </span>
+</button>
 
-    <!-- Right Arrow -->
-    <button id="scrollRightL" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800 p-2 rounded-full hover:bg-gray-700">
-      &#8594;
-    </button>
+<!-- Right Arrow -->
+<button id="scrollRightL" type="button" class="absolute right-0 top-1/2 -translate-y-1/2 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none">
+  <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70">
+    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" fill="none" viewBox="0 0 6 10">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+    </svg>
+    <span class="sr-only">Next</span>
+  </span>
+</button>
+
 
     <!-- Carousel Viewport -->
     <h4 class="text-xl font-semibold text-white">Languages</h4>
    <div id="carousel-language" class="flex transition-all duration-300 ease-in-out overflow-hidden" style="scroll-behavior: smooth;">
   <!-- Card -->
-  <div class="w-1/4 flex-shrink-0 p-2 block text-center">
-    <div class="bg-indigo-600 w-full h-48 flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
+  <div class="w-1/2 sm:w-1/4 flex-shrink-0 p-2 block text-center">
+    <div class="bg-indigo-600 w-full aspect-square flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
       <img src="./assets/images/html&css.png">
     </div>
     <p class="mt-2">HTML + CSS</p>
   </div>
 
-  <div class="w-1/4 flex-shrink-0 p-2 block text-center">
-    <div class="bg-blue-300 w-full h-48 flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
+  <div class="w-1/2 sm:w-1/4 flex-shrink-0 p-2 block text-center">
+    <div class="bg-blue-300 w-full aspect-square flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
       <img src="./assets/images/javasciptlogo.png">
     </div>
     <p class="mt-2">JavaScript</p>
   </div>
 
-  <div class="w-1/4 flex-shrink-0 p-2 block text-center">
-    <div class="bg-yellow-600 w-full h-48 flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
+  <div class="w-1/2 sm:w-1/4 flex-shrink-0 p-2 block text-center">
+    <div class="bg-yellow-600 w-full aspect-square flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
       <img src="./assets/images/php.jpg">
     </div>
     <p class="mt-2">PHP</p>
   </div>
 
-  <div class="w-1/4 flex-shrink-0 p-2 block text-center">
-    <div class="bg-green-600 w-full h-48 flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
+  <div class="w-1/2 sm:w-1/4 flex-shrink-0 p-2 block text-center">
+    <div class="bg-green-600 w-full aspect-square flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
       <img src="./assets/images/laravellogo.png">
     </div>
     <p class="mt-2">Laravel</p>
   </div>
 
-  <div class="w-1/4 flex-shrink-0 p-2 block text-center">
-    <div class="bg-green-600 w-full h-48 flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
+  <div class="w-1/2 sm:w-1/4 flex-shrink-0 p-2 block text-center">
+    <div class="bg-green-600 w-full aspect-square flex items-center justify-center px-2 py-2 rounded-xl shadow-lg text-white">
       <img src="./assets/images/angularlogo.png" class="h-24 object-contain">
     </div>
     <p class="mt-2">Angular</p>
@@ -254,7 +292,7 @@
 
   <!-- Footer -->
    <section>
-  <footer class="text-center py-6 bg-[#121212] border-t border-[#3b3f5c] text-sm">
+  <footer class="text-center py-6 bg-[#1e1e1e] border-t border-[#3b3f5c] text-sm">
     © 2025 George Michael Literal | Personal Portfolio.
   </footer>
 </section>
